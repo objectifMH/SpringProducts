@@ -46,11 +46,10 @@ public class ProductService {
     }
 
     //On met à jour un produit :
-    public Product update(Product productMaj){
+    public Product updateProduct(Product productMaj){
         Product product = productRepository.findById(productMaj.getId()).orElse(null);
-        productMaj.setNom(product.getNom());
-        productMaj.setDescription(product.getDescription());
-        productMaj.setPrix(product.getPrix());
+
+
 
         return productRepository.save(productMaj);
 

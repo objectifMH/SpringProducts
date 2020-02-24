@@ -34,14 +34,9 @@ public class ProductController {
         productService.deleteProductById(id);
     }
 
-    @PutMapping("product/{id}")
-    public Product updateProduct(@PathVariable Long id, @RequestBody Product newProduct){
-        Product productMAJ = productService.getProductById(id);
-        productMAJ.setNom(newProduct.getNom());
-        productMAJ.setDescription(newProduct.getDescription());
-        productMAJ.setPrix(newProduct.getPrix());
-
-        return productService.saveProduct(productMAJ);
+    @PutMapping("product")
+    public Product updateProduct(@RequestBody Product newProduct){
+        return productService.updateProduct(newProduct);
     }
 
 
